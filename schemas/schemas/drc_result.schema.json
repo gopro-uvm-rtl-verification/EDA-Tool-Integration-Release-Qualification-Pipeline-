@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DRC Result",
+  "type": "object",
+  "required": ["tool", "design", "ruledeck", "errors"],
+  "properties": {
+    "tool": {"type": "string"},
+    "design": {"type": "string"},
+    "ruledeck": {"type": "string"},
+    "errors": {"type": "integer", "minimum": 0},
+    "waived": {"type": "integer", "minimum": 0},
+    "metadata": {"type": "object"}
+  }
+}
