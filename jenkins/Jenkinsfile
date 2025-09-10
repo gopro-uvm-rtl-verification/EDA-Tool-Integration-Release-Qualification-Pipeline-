@@ -1,0 +1,27 @@
+pipeline {
+  agent any
+  options { timestamps() }
+  stages {
+    stage('Setup') {
+      steps {
+        sh 'python -m pip install --upgrade pip && pip install -r requirements.txt'
+      }
+    }
+    stage('Shard & Run') {
+      steps {
+        sh 'python scripts/jenkins_shard.py --matrix matrix/qual_matrix.yaml --out out_run'
+      }
+    }
+    stage('Release Notes') {
+      steps {
+        sh 'python reports/release_notes_gen.py --out out_run --notes out_run/RELEASE_NOTES.md --tag BUILD-${BUILD_NUMBER}'
+        archiveArtifacts artifacts: 'out_run/**', fingerprint: true
+      }
+    }
+  }
+  post {
+    always {
+      junit allowEmptyResults: true, testResults: 'out_run/junit/*.xml'
+    }
+  }
+}
