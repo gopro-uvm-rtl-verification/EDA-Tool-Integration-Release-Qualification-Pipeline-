@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Run Summary",
+  "type": "object",
+  "required": ["run_id", "timestamp", "artifacts"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "artifacts": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
