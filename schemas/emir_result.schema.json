@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EM-IR Result",
+  "type": "object",
+  "required": ["tool", "design", "max_ir_drop_mv", "em_violations"],
+  "properties": {
+    "tool": {"type": "string"},
+    "design": {"type": "string"},
+    "max_ir_drop_mv": {"type": "number"},
+    "em_violations": {"type": "integer", "minimum": 0},
+    "metadata": {"type": "object"}
+  }
+}
