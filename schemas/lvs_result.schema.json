@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LVS Result",
+  "type": "object",
+  "required": ["tool", "design", "ruledeck", "status"],
+  "properties": {
+    "tool": {"type": "string"},
+    "design": {"type": "string"},
+    "ruledeck": {"type": "string"},
+    "status": {"type": "string", "enum": ["clean", "mismatch", "error"]},
+    "shorts": {"type": "integer", "minimum": 0},
+    "opens": {"type": "integer", "minimum": 0},
+    "metadata": {"type": "object"}
+  }
+}
