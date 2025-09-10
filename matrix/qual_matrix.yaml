@@ -1,0 +1,30 @@
+designs:
+  - name: tiny_core
+    classes: [small]
+  - name: mid_soc
+    classes: [medium]
+
+modes: [functional, scan, low_power]
+
+corners:
+  - name: SS_0p72V_125C
+  - name: TT_0p8V_25C
+  - name: FF_0p88V_m40C
+
+checks: [sta, drc, lvs, emir]
+
+ruledecks:
+  drc: calibre_drc_2025.1
+  lvs: calibre_lvs_2025.1
+
+tools:
+  sta: primetime
+  drc: calibre
+  lvs: calibre
+  emir: voltus
+
+promotion_criteria:
+  sta: { wns_ns_min: 0.0, tns_ns_max: 0.0, violations_max: 0 }
+  drc: { errors_max: 0 }
+  lvs: { must_be: clean }
+  emir: { max_ir_drop_mv: 80.0, em_violations_max: 0 }
