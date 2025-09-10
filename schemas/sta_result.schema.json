@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "STA Result",
+  "type": "object",
+  "required": ["tool", "design", "mode", "corner", "wns_ns", "tns_ns", "violations"],
+  "properties": {
+    "tool": {"type": "string"},
+    "design": {"type": "string"},
+    "mode": {"type": "string"},
+    "corner": {"type": "string"},
+    "wns_ns": {"type": "number"},
+    "tns_ns": {"type": "number"},
+    "violations": {"type": "integer", "minimum": 0},
+    "metadata": {"type": "object"}
+  }
+}
